@@ -24,8 +24,8 @@ if [ -z "$TEXT" ]; then
   TEXT="$LAST_MSG"
 fi
 
-# Clean up position tracker
-rm -f "$POS_FILE"
+# Update position (keep file so next turn doesn't restart from 0)
+echo "$CURRENT_LINES" > "$POS_FILE"
 
 if [ -n "$TEXT" ] && [ ${#TEXT} -ge 5 ]; then
   "$SPEAK" "$TEXT"
