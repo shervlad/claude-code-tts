@@ -54,7 +54,7 @@ while true; do
 
   # Play this segment
   setsid bash -c '
-    edge-tts --voice "en-US-AndrewNeural" --rate="+30%" --text "$1" --write-media - 2>/dev/null \
+    edge-tts --voice "en-US-AndrewNeural" --rate="+150%" --text "$1" --write-media - 2>/dev/null \
       | gst-launch-1.0 fdsrc ! mpegaudioparse ! mpg123audiodec ! audioconvert ! autoaudiosink 2>/dev/null
   ' _ "$TEXT" &
   PLAY_PID=$!
